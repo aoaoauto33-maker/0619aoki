@@ -1,0 +1,79 @@
+・なぜtsを使うのか？
+webシステムを作るときは今はほぼtypescriptだから
+jsに堅安全性を加えることでバグを減らし、生産性と品質の向上を図る
+
+\はoption + ¥を押す
+
+
+
+mkdir フォルダを作る
+ ts-training/.devcontainerと打ってts-trainingがまだない場合でもまとめて作ってくれる
+touch ファイルを作る
+
+TypeScriptのファイル名は.ts
+二つ必要で、ブラウザ向けのファイルとNode.jsスクリプトのサンプル
+
+index.html...main.tsを読み込むHTMLファイル
+
+package.json...他所から借りてきたものを管理してくれている
+tsconfig.json...コンパイラの設定
+
+
+なぜ設定ファイルが必要なのか？TypeScriptがそのまま動かせないカスだから
+
+
+package.jsonとは
+Node.jsプロジェクトの設定書
+なんかいろいろ定義してる
+
+
+
+npmは多種多様なライブラリを管理している
+npmに持っていかれないようにprivateをtrueにする
+
+
+
+
+"devDependencies": {
+  "tsx": "^4",　TypeScript本体
+  "typescript": "^5",　　jsに変換するコマンドを打たずに実行できる便利なやつ
+  "vite": "^6"　超高速な開発サーバー、ブラウザでの動作確認に使う
+}必要なものをこういう風に書いておいて、npm installでインストールしてくれる
+^は最低限ここまでのバージョンにしてね見たいなバージョンの許容
+
+
+
+
+tsxがjsに変換している
+
+
+npm run dev ブラウザで動かすならこれ実行しないと
+UIやDOMを使うコードの動作確認
+
+npm run run src/hello.ts　ブラウザなしならこれ
+ロジックや関数の動作確認
+
+
+
+node_module/フォルダがgitに含まれないのは、ライブラリとかが入ってて膨大な量で大変だから
+
+function add(a: number, b: number): number {
+    return a + b;
+}変数aもbもnumber型で、最後の:numberは戻り値の型を指定している
+
+
+
+
+
+modulesは多すぎてgitに保存したくない
+必要になった時にインストールすればいいから保存する必要はないs
+
+ls -a　　　　　　一覧を見る
+rm -rf 消したいファイル
+rf=リカーシブフォース 再起的に強制的に消す
+-rf *だと全部消えちゃうから注意
+
+
+
+１　.gitignoreファイルを作る
+２　コピペして貼る

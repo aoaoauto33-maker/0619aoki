@@ -1,0 +1,31 @@
+{
+    "name": "TypeScript Training",
+    // vscode上で表示されるコンテナの名前
+    "build": {
+        "dockerfile": "Dockerfile"
+    },  // どのDockerfileを使ってコンテナを作るか指定
+
+    "forwardPorts": [3004],
+    // コンテナ内で動いてるサービスのポートを手元のPCに転送している
+    "postCreateCommand": "npm install",
+    // npm installはコマンド、コンテナが作成された直後に自動で実行されるコマンド
+    // package.jsonに書いてある足し算ライブラリ(例)を実際にインストールしてくれる
+    "customizations":{
+        "vscode": {
+            "extensions": [
+            // 拡張機能の追加
+                "ms-vscode.vscode-typescript-next",
+                // 言語サポート機能(型チェック、補完など)の追加
+                "formulahendry.code-runner"
+                // 実行ボタンの追加
+            ],
+            "settings": {
+            // tsからjsに変換するときに必要なもの(完全に理解しなくてOK)
+                "code-runner.executorMap": {
+                    "typescript": "npx tsx"
+                },
+                "code-runner.runInTerminalpp": true
+            }
+        }
+    }
+}

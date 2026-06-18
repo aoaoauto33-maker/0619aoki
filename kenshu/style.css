@@ -1,0 +1,16 @@
+#allButton{
+    display:flex;
+    /* 横並びにしてくれる */
+    flex-wrap:wrap;
+    /* 親要素の幅に入りきらなくなったら次の行へ送る */
+}
+
+#allButton button{
+    width: 25%;
+}
+/* 親要素が持ってる幅の25%を一個のボタンに持たせる */
+
+#btn7{
+    margin-left: 25%;
+}
+
