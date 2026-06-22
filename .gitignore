@@ -1,1 +1,34 @@
+# Dependencies
 node_modules/
+#  このファイルの中は無視する、gitに保存されない
+
+# Build output
+dist/
+build/
+out/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
+*.swp
+*.swo
