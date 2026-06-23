@@ -1,0 +1,131 @@
+<in演算子>
+オブジェクトがそのプロパティを持っているか聞いている
+const player = {
+    name: "勇者",
+    hp: 100
+};
+
+console.log("hp" in player);
+trueと出力される
+
+console.log("attack" in player);
+falseと出力される
+
+
+
+
+
+
+<instanceof演算子>
+class Player {
+    constructor(
+        public name: string,
+        public hp: number
+    ){}
+}
+
+const p = new Player("勇者", 100);
+
+console.log(p instanceof Player);
+pはplayerクラスから作られたインスタンスですか？
+trueと出力される
+
+console.log(p instanceof Monster);
+falseと出力される
+
+
+
+<satisfies>
+中身の情報も読み取ってくれる
+
+
+
+<型アサーション>
+型の安全性を担保するもの(tsこういうのばっか)
+コンパイラに「こういう型なんだよ」とわからせる = as
+
+
+
+
+
+
+
+<型演算子>
+・keyof
+オブジェクトから安全に任意のプロパティを取り出すことができる
+キーだけを取ってきた型が欲しい時に使う
+リテラル型のユニオン型
+
+・typeof
+変数から型情報を取得したい時に使う
+対象の値のデータ型を文字列で返す
+
+
+keyof typeofの組み合わせは、変数からキーだけを取り出したいときに使う
+
+
+
+
+<ジェクリクス>    <T>をつける(型パラメータ)、引数を与えたタイミングで型が決まる
+再利用可能なコードを作成する仕組み
+型付きの関数・型のテンプレ
+
+anyを使うと返り血がany型のまま
+
+anyみたいに柔軟だけど、型はちゃんと守る良いやつ
+
+ユニオン型と併用もできる◎
+
+
+ジェネリッククラスは、他の人に作ってもらいたいときに、ある程度自分の思い通りに
+作って欲しい時に使う。
+
+
+
+・ジェネリッククラスの継承
+extendsで継承するときに型パラメータに型を入れる
+
+
+
+
+・ジェネリクスとユーティリティ型
+Partial = 一部分
+
+
+
+
+・Record<K,T>型
+二つの型を受け取る？
+一つ目はキーそのもの、二つ目は値s
+interface Color {
+    red: RGB | string;
+    green: RGB | string;
+    blue: RGB | string;
+}
+let color: Color;
+上と下はやってること一緒
+type RGB = [red: number, green: number, blue: number];
+et color: Record<primaryColors, RGB | string>;
+
+
+
+
+
+・Pick<T,K>型 最悪覚えられなかったらRecordだけでもいいよ
+取り出したいものだけ取り出す
+
+
+
+
+<モジュールとライブラリ>
+importするときは.jsにする なぜ？
+コンパイラするときはjsだから？
+
+
+
+
+TSConfigファイル
+tsではプロジェクトをどのようにコンパイルするか柔軟に設定できる
+なぜなら、jsに一旦変換しないといけないから
+
+tsc --initを打つとtsconfig.jsonを作ってくれる

@@ -1,0 +1,6 @@
+Reactとは？-js,tsが使える
+UI開発のためのjsライブラリ
+
+TSX = HTML
+
+コンポーネントを使ってできるやつがReact

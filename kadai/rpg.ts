@@ -50,6 +50,8 @@ class Character{
 
 
 
+
+
 // クラス継承1(上書きしたいメソッドの前にoverrideと明示するとわかりやすい)
 class Warrior extends Character{
     override attack(target: Character): void{
@@ -110,6 +112,10 @@ const slimeC = new Character('スライムC',35,6);
 
 
 
+
+
+
+
 // パーティを組ませる
 const party: Character[] =[
     hero,
@@ -126,6 +132,9 @@ const enemyParty: Character[] =[
     slimeB,
     slimeC
 ];
+
+
+
 
 
 
