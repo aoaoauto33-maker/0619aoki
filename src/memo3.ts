@@ -180,17 +180,17 @@
 
 
 
-// tsの非同期処理
-function fetchMessage(): Promise<string> {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve("Hello!"), 1000);
-    });
-}
+// // tsの非同期処理
+// function fetchMessage(): Promise<string> {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve("Hello!"), 1000);
+//     });
+// }
 
-async function main(){
-    const message = await fetchMessage();
-    console.log(message);
-    console.log("こんにちは");
-}
+// async function main(){
+//     const message = await fetchMessage();
+//     console.log(message);
+//     console.log("こんにちは");
+// }
 
-main();
+// main();

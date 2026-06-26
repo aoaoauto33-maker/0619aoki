@@ -59,9 +59,85 @@ instanceofもif文のとき便利
 
 
 
+<タグ付きユニオン型の絞り込み> なんか一番使うらしい
+タグを入れて、それを判定するメソッドを作ることで絞り込んでくれる
+switchと相性がいい
+
+
+
+
+
 
 <satisfies>
 中身の情報も読み取ってくれる
+最低限、型の情報を満たしているかチェック(余計なものがついててもokではない)
+type Animal = {
+    type: string;
+};
+const pochi = {
+    type: "dog",
+}satisfies Animal;
+Animalという条件はしっかり保持してくれるし、"dog"という具体的な型の
+情報も残してくれる
+ただし、as constをつけない限りはstringに広がる場合もある
+
+
+パターン２
+type RouteConfig = {
+  path: string;
+  label: string;
+};
+const routes = {
+  home: { path: "/", label: "Home" },
+  about: { path: "/about", label: "About" },
+} satisfies Record<string, RouteConfig>;
+変数routesの中にhomeとaboutというキーが入っている
+Record<string, RouteConfig>
+= {[好きな文字列]: RouteConfig}と理解できればok
+
+
+パターン３
+const config = {
+  env: "dev",
+  retries: 3,
+} satisfies {
+  env: "dev" | "prod";
+  retries: number;
+};１回しか使わない型なら、satisfiesの後ろにそのままつけてもok
+
+
+
+
+as constはいいぞ
+type TireKind = 0 | 1 | 2 | 3;
+
+const TIRE_KIND_LABELS = {
+  0: "その他",
+  1: "夏タイヤ",
+  2: "オールシーズン",
+  3: "冬タイヤ",
+} as const satisfies Record<TireKind, string>;
+この場合、値の中身がリテラルとして残る
+
+as constがないとこうなっちゃう
+// 実際の推論イメージ
+const TIRE_KIND_LABELS: {
+  0: string;
+  1: string;
+  2: string;
+  3: string;
+}
+
+実践
+function getLabel(kind: TireKind) {
+    return TIRE_KIND_LABELS[kind];
+}
+こういう関数のときに、kindを５にするとエラーを出してくれる
+
+
+
+
+
 
 
 

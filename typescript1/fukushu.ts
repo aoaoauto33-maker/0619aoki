@@ -21,9 +21,62 @@
 
 
 
-// <instanceof>
-class Person{
-    name = "Taro";
-}
-const p = new Person();
-console.log(p instanceof Person);
+// // <instanceof>
+// class Person{
+//     name = "Taro";
+// }
+// const p = new Person();
+// console.log(p instanceof Person);
+
+
+
+
+
+
+// // <タグ付きユニオンによる絞り込み>
+// type Dog = {
+//     type: "dog";
+//     name: string;
+// };
+
+// type Cat = {
+//     type: "cat";
+//     age: number;
+// };
+
+// type Animal = Dog | Cat;
+
+// function speak(animal: Animal) {
+//     switch (animal.type) {
+//         case "dog":
+//             console.log(animal.name);
+//             break;
+
+//         case "cat":
+//             console.log(animal.age);
+//             break;
+//     }
+// }
+
+// // 動作確認
+// const dog: Dog = {
+//     type: "dog",
+//     name: "Pochi",
+// };
+// // 変数の中にタグを入れることで、speakの中でタグを判定してくれる
+
+// speak(dog);
+
+
+
+
+
+// // satisfiesはどんな時に使う？ 設定ファイルを書くときに使う
+// type Config = {
+//     host: string;
+//     port: number;
+// };
+// const config = {
+//     host: "localhost",
+//     port: 3000,
+// }satisfies Config;

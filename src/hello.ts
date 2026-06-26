@@ -236,21 +236,21 @@
 
 
 
-// 抽象クラス
-abstract class Animal{
-    abstract makeSound(): void;
+// // 抽象クラス
+// abstract class Animal{
+//     abstract makeSound(): void;
 
-    move(): void{
-        console.log('Tge animal is moving');
-    }
-}
+//     move(): void{
+//         console.log('Tge animal is moving');
+//     }
+// }
 
-class Dog extends Animal{
-    makeSound(): void{
-        console.log("ワンワン！");
-    }
-}
+// class Dog extends Animal{
+//     makeSound(): void{
+//         console.log("ワンワン！");
+//     }
+// }
 
-const dog = new Dog();
-dog.move();
-dog.makeSound();
+// const dog = new Dog();
+// dog.move();
+// dog.makeSound();
