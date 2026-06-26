@@ -1,3 +1,19 @@
+<typeofとkeyof>
+変数やオブジェクトから型を取り出す
+javascriptとの違いは、jsは実行時に値の種類を返してくれるだけで、
+tsは実際に型を取り出してくれる違い(jsは型を決める必要がないため)
+
+keyof(typeof person)なのでtypeofから処理している
+
+keyofはなんのためにあるのか？
+存在するキーから実際に型を取り出すことによって、不正なキーを受け取
+ったときコンパイルエラーを吐いてくれるから、より安全だから
+
+
+
+
+
+
 <in演算子>
 オブジェクトがそのプロパティを持っているか聞いている
 const player = {
@@ -11,12 +27,15 @@ trueと出力される
 console.log("attack" in player);
 falseと出力される
 
+tureかfalseで出してくれるので、if文のとき便利
+
 
 
 
 
 
 <instanceof演算子>
+このオブジェクトは、このクラスから作られたものですか？
 class Player {
     constructor(
         public name: string,
@@ -32,6 +51,12 @@ trueと出力される
 
 console.log(p instanceof Monster);
 falseと出力される
+
+instanceofもif文のとき便利
+
+
+
+
 
 
 
